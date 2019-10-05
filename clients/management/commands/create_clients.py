@@ -18,14 +18,13 @@ class Command(BaseCommand):
         all_vcards_string = fetch_all_contacts_vcards()
         list_of_vcards_strings = get_list_of_vcards_strings(all_vcards_string)
         list_of_vcards_objects = get_list_of_vcards_objects(list_of_vcards_strings)
+
         for vcard_str, vcard_object in zip(list_of_vcards_strings, list_of_vcards_objects):
-            print vcard_object.fn.value
-            c = Client.objects.create(label=vcard_object.fn.value, raw_vcard=vcard_object)
+            c = Client.objects.create(label=str(vcard_object.n.value).strip(), raw_vcard=vcard_object)
             if hasattr(vcard_object, 'tel_list'):
                 for phone in vcard_object.tel_list:
                     if '*31#' in phone.value:
                         continue
-                    print phone.value
                     cleaned_phone = self.ascii_only(phone.value).replace(' ', '')
                     if '+' not in cleaned_phone:
                         cleaned_phone = '+48{}'.format(cleaned_phone)
