@@ -23,12 +23,19 @@ class Command(BaseCommand):
         #  faster by going one by one spawned in parallel
         all_vcards_string = osascript(
             'contacts/fetch_all_contacts_vcards.scpt')
-        return str(all_vcards_string)
+        return str(all_vcards_string).strip()
 
     @staticmethod
     def get_list_of_vcards(all_vcards_string) -> Sequence[str]:
-        split_by = '\nEND:VCARD'
-        return [i + split_by for i in all_vcards_string.split(split_by)][:-1]
+        return all_vcards_string.split('\r\n, ')
+        # import re
+        # l = re.split(r'(?s)BEGIN:VCARD.*?END:VCARD', all_vcards_string)
+        # import ipdb; ipdb.set_trace()
+        # return l
+        # import ipdb; ipdb.set_trace()
+        # split_by = '\r\nEND:VCARD\n, '
+        # l = [i + split_by.strip().replace(',', '') for i in all_vcards_string.split(split_by)]
+        # return l
 
     @staticmethod
     def get_list_of_vcards_objects(all_vcards_strings_list) -> Sequence[vobject.vCard]:
