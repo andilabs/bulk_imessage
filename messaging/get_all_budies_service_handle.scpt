@@ -1,0 +1,1 @@
+tell application "Messages" to return {handle, name of service} of buddies

@@ -103,6 +103,6 @@ STATIC_URL = '/static/'
 
 DEFAULT_REGION = os.environ.get('DEFAULT_REGION', 'PL')
 
-PREFERRED_SERVICE_NAME = constants.iMessage
+PREFERRED_SERVICE = constants.iMessage
 
-FALLBACK_SERVICE_NAME = constants.SMS
+FALLBACK_SERVICE = constants.SMS
