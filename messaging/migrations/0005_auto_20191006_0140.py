@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='distributionlist',
             name='members',
-            field=models.ManyToManyField(to='clients.ClientPhone'),
+            field=models.ManyToManyField(to='contacts.ContactPhone'),
         ),
     ]

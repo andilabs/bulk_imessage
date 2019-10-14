@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('clients', '0001_initial'),
+        ('contacts', '0001_initial'),
     ]
 
     operations = [
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('updated_at', models.DateTimeField(auto_now=True, db_index=True)),
                 ('send_at', models.DateTimeField(null=True)),
                 ('content', models.CharField(max_length=160)),
-                ('phone', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='clients.ClientPhone')),
+                ('phone', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='contacts.ContactPhone')),
             ],
             options={
                 'abstract': False,

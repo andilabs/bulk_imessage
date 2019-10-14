@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='message',
             name='phone',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='clients.ClientPhone'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='contacts.ContactPhone'),
         ),
     ]

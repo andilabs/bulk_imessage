@@ -1,6 +1,5 @@
 #!/usr/bin/osascript
 tell application "Contacts"
-	set myList to name of (people)
 	set all_contacts_str to ""
 	repeat with theItem in people
 		set all_contacts_str to all_contacts_str & (vcard of theItem as text)

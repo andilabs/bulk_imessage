@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Client',
+            name='Contact',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True, db_index=True)),
@@ -29,13 +29,13 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='ClientPhone',
+            name='ContactPhone',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated_at', models.DateTimeField(auto_now=True, db_index=True)),
                 ('phone_number', phonenumber_field.modelfields.PhoneNumberField(max_length=128)),
-                ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='clients.Client')),
+                ('contact', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='contacts.Contact')),
             ],
             options={
                 'abstract': False,

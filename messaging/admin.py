@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.utils import timezone
 
-from clients.models import ClientPhone
+from contacts.models import ContactPhone
 from messaging.models import Message, DistributionList
 from messaging.sending import send_message
 
@@ -34,7 +34,7 @@ class MessageAdmin(admin.ModelAdmin):
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "phone":
-            kwargs["queryset"] = ClientPhone.objects.order_by('client__label')
+            kwargs["queryset"] = ContactPhone.objects.order_by('contact__label')
         return super(MessageAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
     def formfield_for_dbfield(self, db_field, **kwargs):

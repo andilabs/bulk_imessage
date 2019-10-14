@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('clients', '0001_initial'),
+        ('contacts', '0001_initial'),
         ('messaging', '0002_auto_20191005_1124'),
     ]
 
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated_at', models.DateTimeField(auto_now=True, db_index=True)),
                 ('label', models.CharField(max_length=160)),
-                ('members', models.ManyToManyField(to='clients.Client')),
+                ('members', models.ManyToManyField(to='contacts.Contact')),
             ],
             options={
                 'abstract': False,

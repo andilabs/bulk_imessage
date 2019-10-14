@@ -1,12 +1,12 @@
 from django.db import models
 
-from clients.models import ClientPhone, Client
+from contacts.models import ContactPhone, Contact
 from utils.models import TimeStampedModel
 
 
 class DistributionList(TimeStampedModel):
     label = models.CharField(max_length=160)
-    members = models.ManyToManyField(ClientPhone)
+    members = models.ManyToManyField(ContactPhone)
 
     def __str__(self):
         return self.label
@@ -15,7 +15,7 @@ class DistributionList(TimeStampedModel):
 class Message(TimeStampedModel):
     send_at = models.DateTimeField(null=True)
     content = models.CharField(max_length=160)
-    phone = models.ForeignKey(ClientPhone,
+    phone = models.ForeignKey(ContactPhone,
                               on_delete=models.SET_NULL,
                               null=True,
                               blank=True)

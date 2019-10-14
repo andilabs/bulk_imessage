@@ -1,6 +1,8 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from contacts import constants
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -27,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'utils',
     'messaging',
-    'clients',
+    'contacts',
 ]
 
 MIDDLEWARE = [
@@ -100,3 +102,7 @@ STATIC_URL = '/static/'
 
 
 DEFAULT_REGION = os.environ.get('DEFAULT_REGION', 'PL')
+
+PREFERRED_SERVICE_NAME = constants.iMessage
+
+FALLBACK_SERVICE_NAME = constants.SMS

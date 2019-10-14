@@ -6,3 +6,6 @@ pytest==5.2.0
 factory-boy==2.12.0
 typing-extensions==3.7.4
 phonenumbers==8.10.20
+sh==1.12.14
+pytest-django==3.5.1
+mock==3.0.5
