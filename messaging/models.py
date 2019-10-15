@@ -27,8 +27,3 @@ class Message(TimeStampedModel):
     @property
     def is_sent(self):
         return bool(self.send_at)
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint()
-        ]
