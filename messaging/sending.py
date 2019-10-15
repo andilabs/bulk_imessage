@@ -24,13 +24,13 @@ def send_message(content: str, contact_phone: Optional[ContactPhone] = None,
                             service_type=service)
 
 
-def get_buddy_services(phone_number: str)->Sequence[str]:
+def get_buddy_services(phone_number: str) -> Sequence[str]:
     services = osascript('messaging/get_buddy_services.scpt', phone_number)
     services_list = services.replace('\n', '').split(', ')
     return services_list
 
 
-def get_all_buddy_services()->DefaultDict[str, Sequence[str]]:
+def get_all_buddy_services() -> DefaultDict[str, Sequence[str]]:
     sequence_of_handle_followed_by_name_of_service = osascript(
         'messaging/get_all_budies_service_handle.scpt').split(', ')
     handle_end_index = int(
@@ -44,7 +44,7 @@ def get_all_buddy_services()->DefaultDict[str, Sequence[str]]:
     return services_lookup
 
 
-def determine_preferred_service(list_of_services: Sequence[str])->int:
+def determine_preferred_service(list_of_services: Sequence[str]) -> int:
     if settings.PREFERRED_SERVICE == constants.iMessage:
 
         if imessage_service_name in list_of_services:
@@ -53,12 +53,12 @@ def determine_preferred_service(list_of_services: Sequence[str])->int:
     return settings.FALLBACK_SERVICE
 
 
-def get_buddy_preferred_service(phone_number: str)->int:
+def get_buddy_preferred_service(phone_number: str) -> int:
     buddy_services = get_buddy_services(phone_number)
     return determine_preferred_service(buddy_services)
 
 
-def get_service_name_for_imessage()->str:
+def get_service_name_for_imessage() -> str:
     imessage_service_name = osascript(
         'messaging/get_imessage_service_name.scpt')
     return imessage_service_name.strip()

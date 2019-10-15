@@ -34,11 +34,14 @@ class MessageAdmin(admin.ModelAdmin):
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "phone":
-            kwargs["queryset"] = ContactPhone.objects.order_by('contact__label')
-        return super(MessageAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+            kwargs["queryset"] = ContactPhone.objects.order_by(
+                'contact__label')
+        return super(MessageAdmin, self).formfield_for_foreignkey(
+            db_field, request, **kwargs)
 
     def formfield_for_dbfield(self, db_field, **kwargs):
-        formfield = super(MessageAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        formfield = super(MessageAdmin, self).formfield_for_dbfield(
+            db_field, **kwargs)
         if db_field.name == 'content':
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
         return formfield

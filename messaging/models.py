@@ -1,6 +1,6 @@
 from django.db import models
 
-from contacts.models import ContactPhone, Contact
+from contacts.models import ContactPhone
 from utils.models import TimeStampedModel
 
 
@@ -27,3 +27,8 @@ class Message(TimeStampedModel):
     @property
     def is_sent(self):
         return bool(self.send_at)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint()
+        ]
