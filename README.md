@@ -1,6 +1,6 @@
 bulk_imessage 👩‍💻👨‍💻✉📲
 ========================
-[![Build Status](https://travis-ci.org/andilabs/bulk-imessage.png?branch=master)](https://travis-ci.org/andilabs/bulk-imessage)
+[![Build Status](https://travis-ci.org/andilabs/bulk_imessage.png?branch=master)](https://travis-ci.org/andilabs/bulk_imessage)
 
 ## send iMessage/SMS in automated bulk way from Mac to your contacts (applescript behind)
 ## fetch all your Contacts (applescript behind)
