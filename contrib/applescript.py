@@ -6,5 +6,6 @@ logger = logging.getLogger(__name__)
 
 try:
     osascript = sh.Command("osascript")
-except sh.CommandNotFound as e:
-    logger.warning('Applescript not available on this platform')
+except sh.CommandNotFound:
+    logger.error('Sorry you are probbably not running OS X and '
+                 'Applescript not available on this platform')
