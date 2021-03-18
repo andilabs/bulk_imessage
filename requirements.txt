@@ -1,4 +1,4 @@
-Django==2.2.4
+Django==2.2.18
 django-phonenumber-field==3.0.1
 vobject==0.9.6.1
 ipdb==0.12.2
